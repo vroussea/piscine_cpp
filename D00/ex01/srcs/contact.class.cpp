@@ -14,7 +14,32 @@
 
 Contact::Contact() {
     this->exist = false;
-    return ;
+}
+
+Contact::Contact(std::string firstName,
+                 std::string lastName,
+                 std::string nickname,
+                 std::string login,
+                 std::string postalAddress,
+                 std::string emailAddress,
+                 std::string phoneNumber,
+                 std::string birthdayDate,
+                 std::string favoriteMeal,
+                 std::string underwearColor,
+                 std::string darkestSecret) {
+
+    this->exist = true;
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->nickname = nickname;
+    this->login = login;
+    this->postalAddress = postalAddress;
+    this->emailAddress = emailAddress;
+    this->phoneNumber = phoneNumber;
+    this->birthdayDate = birthdayDate;
+    this->favoriteMeal = favoriteMeal;
+    this->underwearColor = underwearColor;
+    this->darkestSecret = darkestSecret;
 }
 
 Contact::~Contact() {
@@ -67,61 +92,4 @@ std::string Contact::getUnderwearColor(void) const{
 
 std::string Contact::getDarkestSecret(void) const{
     return this->darkestSecret;
-}
-
-Contact     Contact::create(void) {
-    Contact     newContact;
-    std::string field;
-
-    newContact.exist = true;
-
-    std::cout << "CREATING CONTACT :" << std::endl << std::endl;
-
-    std::cout << "first name : ";
-    std::cin >> field;
-    newContact.firstName = field;
-
-    std::cout << "last name : ";
-    std::cin >> field;
-    newContact.lastName = field;
-
-    std::cout << "nickname : ";
-    std::cin >> field;
-    newContact.nickname = field;
-
-    std::cout << "login : ";
-    std::cin >> field;
-    newContact.login = field;
-
-    std::cout << "postal address : ";
-    std::cin >> field;
-    newContact.postalAddress = field;
-
-    std::cout << "email address : ";
-    std::cin >> field;
-    newContact.emailAddress = field;
-
-    std::cout << "phone number : ";
-    std::cin >> field;
-    newContact.phoneNumber = field;
-
-    std::cout << "birthday date : ";
-    std::cin >> field;
-    newContact.birthdayDate = field;
-
-    std::cout << "favorite meal : ";
-    std::cin >> field;
-    newContact.favoriteMeal = field;
-
-    std::cout << "underwear color : ";
-    std::cin >> field;
-    newContact.underwearColor = field;
-
-    std::cout << "darkest secret : ";
-    std::cin >> field;
-    newContact.darkestSecret = field;
-
-    std::cout << std::endl << "CONTACT CREATED" << std::endl << std::endl;
-
-    return newContact;
 }

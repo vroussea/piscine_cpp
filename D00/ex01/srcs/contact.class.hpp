@@ -33,9 +33,18 @@ public:
     std::string     getDarkestSecret(void) const;
 
                     Contact(void);
+                    Contact(std::string firstName,
+                            std::string lastName,
+                            std::string nickname,
+                            std::string login,
+                            std::string postalAddress,
+                            std::string emailAddress,
+                            std::string phoneNumber,
+                            std::string birthdayDate,
+                            std::string favoriteMeal,
+                            std::string underwearColor,
+                            std::string darkestSecret);
                     ~Contact(void);
-
-    static Contact  create(void);
 
 private:
     bool            exist;

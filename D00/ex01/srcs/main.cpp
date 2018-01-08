@@ -13,7 +13,7 @@
 #include "phone_book.class.hpp"
 #include "contact.class.hpp"
 
-int action(std::string command) {
+int     action(std::string command) {
     if (command.compare("ADD") == 0) {
         return 1;
     }
@@ -28,7 +28,7 @@ int action(std::string command) {
     }
 }
 
-int choseAction(void) {
+int     choseAction(void) {
     std::string choice;
 
     std::cout << "Enter one of the following command :" << std::endl;
@@ -40,7 +40,86 @@ int choseAction(void) {
     return action(choice);
 }
 
-int main(void) {
+Contact createContact() {
+    Contact newContact;
+
+    std::string field;
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string login;
+    std::string postalAddress;
+    std::string emailAddress;
+    std::string phoneNumber;
+    std::string birthdayDate;
+    std::string favoriteMeal;
+    std::string underwearColor;
+    std::string darkestSecret;
+    
+    std::cout << "CREATING CONTACT :" << std::endl << std::endl;
+
+    std::cout << "first name : ";
+    std::cin >> field;
+    firstName = field;
+
+    std::cout << "last name : ";
+    std::cin >> field;
+    lastName = field;
+
+    std::cout << "nickname : ";
+    std::cin >> field;
+    nickname = field;
+
+    std::cout << "login : ";
+    std::cin >> field;
+    login = field;
+
+    std::cout << "postal address : ";
+    std::cin >> field;
+    postalAddress = field;
+
+    std::cout << "email address : ";
+    std::cin >> field;
+    emailAddress = field;
+
+    std::cout << "phone number : ";
+    std::cin >> field;
+    phoneNumber = field;
+
+    std::cout << "birthday date : ";
+    std::cin >> field;
+    birthdayDate = field;
+
+    std::cout << "favorite meal : ";
+    std::cin >> field;
+    favoriteMeal = field;
+
+    std::cout << "underwear color : ";
+    std::cin >> field;
+    underwearColor = field;
+
+    std::cout << "darkest secret : ";
+    std::cin >> field;
+    darkestSecret = field;
+
+    newContact = Contact(firstName,
+                       lastName,
+                       nickname,
+                       login,
+                       postalAddress,
+                       emailAddress,
+                       phoneNumber,
+                       birthdayDate,
+                       favoriteMeal,
+                       underwearColor,
+                       darkestSecret);
+
+    std::cout << std::endl << "CONTACT CREATED" << std::endl << std::endl;
+
+    return newContact;
+}
+
+int     main(void) {
     size_t      current_index;
     int         current_action;
     Phone_book  phoneBook;
@@ -50,7 +129,7 @@ int main(void) {
     current_index = 0;
     while(current_action != 3) {
         if (current_action == 1) {
-            newContact = Contact::create();
+            newContact = createContact();
             phoneBook.add(newContact, current_index);
             if (current_index == 7)
                 current_index = 0;
