@@ -21,11 +21,11 @@ ZombieEvent::~ZombieEvent() {
 }
 
 void    ZombieEvent::setZombieType(std::string type) {
-    ZombieEvent::type = type;
+    ZombieEvent::_type = type;
 }
 
 Zombie* ZombieEvent::newZombie(std::string name) {
-    Zombie* zombie = new Zombie("", ZombieEvent::type);
+    Zombie* zombie = new Zombie("", ZombieEvent::_type);
     zombie->name = name;
     zombie->announce();
     return zombie;
@@ -36,9 +36,9 @@ Zombie* ZombieEvent::randomChump() {
 
     int random = rand() % 3;
 
-    return newZombie(ZombieEvent::names[random]);
+    return newZombie(ZombieEvent::_names[random]);
 }
 
 
-std::string ZombieEvent::type = "";
-std::string const ZombieEvent::names[] = {"Jack", "Bitter", "Rodolph"};
+std::string ZombieEvent::_type = "";
+std::string const ZombieEvent::_names[] = {"Jack", "Bitter", "Rodolph"};

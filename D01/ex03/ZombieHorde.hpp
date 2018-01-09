@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 14:23:36 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/09 14:23:36 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/09 15:29:49 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/09 15:29:49 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEEVENT_HPP
-#define ZOMBIEEVENT_HPP
+#ifndef ZOMBIEHORDE_HPP
+#define ZOMBIEHORDE_HPP
 
 #include "Zombie.hpp"
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
 
-class ZombieEvent {
+class ZombieHorde {
 public:
-    static std::string          _type;
+    ZombieHorde(int n, std::string type);
+    ~ZombieHorde();
+
+    int                         nbZombies;
     static std::string const    _names[];
-
-    ZombieEvent();
-    ~ZombieEvent();
-
-    static void                 setZombieType(std::string type);
-    static Zombie*              newZombie(std::string name);
-    static Zombie*              randomChump();
+    Zombie                      *zombies;
 };
 
 
