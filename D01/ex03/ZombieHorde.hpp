@@ -23,9 +23,9 @@ public:
     ZombieHorde(int n, std::string type);
     ~ZombieHorde();
 
-    int                         nbZombies;
-    static std::string const    _names[];
     Zombie                      *zombies;
+private:
+    static std::string const    _names[];
 };
 
 

@@ -32,7 +32,6 @@ ZombieHorde::ZombieHorde(int n, std::string type) {
         zombies[i].announce();
         i++;
     }
-    this->nbZombies = n;
 }
 
 ZombieHorde::~ZombieHorde() {
