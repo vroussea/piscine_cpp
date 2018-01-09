@@ -30,7 +30,7 @@ CR_DR =	\xe2\x95\x9d
 CR_DL =	\xe2\x95\x9a
 
 # comp
-CC =		g++
+CC =		clang++
 CFLAGS =	-Wall -Wextra -Werror
 
 # binaries

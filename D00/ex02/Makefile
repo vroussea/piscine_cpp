@@ -6,7 +6,7 @@
 #    By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 09:55:27 by vroussea          #+#    #+#              #
-#    Updated: 2018/01/08 14:08:52 by vroussea         ###   ########.fr        #
+#    Updated: 2018/01/09 10:17:22 by vroussea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ CR_DR =	\xe2\x95\x9d
 CR_DL =	\xe2\x95\x9a
 
 # comp
-CC =		g++
+CC =		clang++
 CFLAGS =	-Wall -Wextra -Werror
 
 # binaries
-EXE =
+EXE =       bank
 LIB_A =
 
 # dir
@@ -45,7 +45,7 @@ INC_DIR =	includes
 # libs
 
 # sources
-SRC_NAME =
+SRC_NAME = tests.cpp Account.class.cpp
 
 # objects
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
