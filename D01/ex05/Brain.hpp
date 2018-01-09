@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 17:29:25 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/09 17:29:25 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/09 17:28:36 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/09 17:28:36 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include <iostream>
+#include <sstream>
 
-void memoryLeak()
-{
-    std::string* panthere = new std::string("String panthere");
-    std::cout << *panthere << std::endl;
+class Brain {
+public:
 
-    delete panthere;
-}
+    Brain();
+    ~Brain();
+    std::string         identify() const;
+};
+
+
+#endif

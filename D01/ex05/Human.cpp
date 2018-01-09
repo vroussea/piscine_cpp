@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 17:29:25 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/09 17:29:25 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/09 17:28:25 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/09 17:28:25 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Human.hpp"
 
-#include <iostream>
+Human::Human() {
+    this->brain = new Brain();
+}
 
-void memoryLeak()
-{
-    std::string* panthere = new std::string("String panthere");
-    std::cout << *panthere << std::endl;
+Human::~Human() {
+    delete this->brain;
+}
 
-    delete panthere;
+std::string Human::identify() const {
+    return this->brain->identify();
+}
+
+Brain*   Human::getBrain() const {
+    return this->brain;
 }
