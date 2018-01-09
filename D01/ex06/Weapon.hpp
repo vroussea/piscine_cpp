@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 17:28:13 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/09 17:28:13 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/09 18:40:38 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/09 18:40:38 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
+
 #include <iostream>
 
-int main()
-{
-    Human bob;
+class Weapon {
+public:
+    Weapon(std::string type);
+    ~Weapon(void);
 
-    std::cout << bob.identify() << std::endl;
-    std::cout << bob.getBrain().identify() << std::endl;
-}
+    void            setType(std::string type);
+    std::string     getType(void) const;
+
+private:
+    std::string type;
+};
+
+
+#endif

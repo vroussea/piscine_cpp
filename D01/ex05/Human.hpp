@@ -22,11 +22,11 @@ public:
 
     int             getSize() const;
     int             getStrength() const;
-    Brain*           getBrain() const;
+    const Brain&          getBrain() const;
 
     std::string     identify() const;
 private:
-    Brain*          brain;
+    Brain const     brain;
 };
 
 

@@ -12,18 +12,17 @@
 
 #include "Human.hpp"
 
-Human::Human() {
-    this->brain = new Brain();
+Human::Human() : brain(Brain()) {
 }
 
 Human::~Human() {
-    delete this->brain;
 }
 
 std::string Human::identify() const {
-    return this->brain->identify();
+    return this->brain.identify();
 }
 
-Brain*   Human::getBrain() const {
-    return this->brain;
+const Brain&      Human::getBrain() const {
+    const Brain& brainRef = this->brain;
+    return brainRef;
 }
