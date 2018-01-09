@@ -22,6 +22,7 @@ void            oneSmallHorde() {
     int random = rand() % 3 + 2;
 
     ZombieHorde zombieHorde = ZombieHorde(random, "Sugar");
+    zombieHorde.announce();
     std::cout << "Oh no ! Another small stack horde appears, you run to avoid them, they'll die for sure when you exit this function" << std::endl;
     std::string choice;
     std::cin >> choice;
@@ -35,10 +36,12 @@ ZombieHorde*    twoSmallHordes() {
     int random = rand() % 3 + 2;
 
     ZombieHorde zombieHorde1 = ZombieHorde(random, "Banana");
+    zombieHorde1.announce();
 
     random = rand() % 3 + 2;
 
     ZombieHorde *zombieHorde2 = new ZombieHorde(random, "Chocolate");
+    zombieHorde2->announce();
 
     std::cout << "Two small stack hordes have appeared, maybe you should run in order to avoid them ?" << std::endl;
     std::string choice;
@@ -57,6 +60,7 @@ int main(void) {
     int random = rand() % 15 + 6;
 
     ZombieHorde *zombieHorde = new ZombieHorde(random, "Peanut");
+    zombieHorde->announce();
     std::cout << "A big horde of zombies appears in front of you, you use all your ammo to kill them" << std::endl;
     std::string choice;
     std::cin >> choice;
@@ -72,6 +76,7 @@ int main(void) {
     random = rand() % 15 + 6;
 
     ZombieHorde zombieHorde2 = ZombieHorde(random, "Lollipop");
+    zombieHorde2.announce();
     std::cout << "So much zombies, you just decide to leave this area since you're close to the main return now." << std::endl;
     std::cin >> choice;
 

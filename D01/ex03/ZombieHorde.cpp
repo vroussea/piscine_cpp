@@ -26,16 +26,21 @@ ZombieHorde::ZombieHorde(int n, std::string type) {
 
         i++;
     }
-
-    i = 0;
-    while (i < n) {
-        zombies[i].announce();
-        i++;
-    }
+    this->nbZombies = n;
 }
 
 ZombieHorde::~ZombieHorde() {
     delete [] this->zombies;
+}
+
+void ZombieHorde::announce() {
+    int i;
+
+    i = 0;
+    while (i < this->nbZombies) {
+        zombies[i].announce();
+        i++;
+    }
 }
 
 std::string const ZombieHorde::_names[] = {"Jack", "Bitter", "Rodolph", "Max", "Stewart", "Daniel", "Florian", "Julie", "Lucie", "Josianne", "Manuealla"};

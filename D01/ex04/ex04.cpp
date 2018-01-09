@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:29:49 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/09 15:29:49 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/09 17:04:32 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/09 17:04:32 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEHORDE_HPP
-#define ZOMBIEHORDE_HPP
-
-#include "Zombie.hpp"
-#include <stdlib.h>
-#include <time.h>
 #include <iostream>
 
-class ZombieHorde {
-public:
-    ZombieHorde(int n, std::string type);
-    ~ZombieHorde();
+int main(void) {
+    std::string     brain = "HI THIS IS BRAIN";
+    std::string*    brain_ptr = &brain;
+    std::string&    brain_ref = brain;
 
-    Zombie                      *zombies;
-    void                        announce();
-private:
-    static std::string const    _names[];
-    int                         nbZombies;
-};
-
-
-#endif
+    std::cout << *brain_ptr << std::endl;
+    std::cout << brain_ref << std::endl;
+    return 1;
+}
