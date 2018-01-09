@@ -22,6 +22,8 @@ public:
     std::string type;
 
     Zombie(std::string zombieName, std::string zombieType);
+    Zombie();
+
     ~Zombie();
     void        announce() const;
 };

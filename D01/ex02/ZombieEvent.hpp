@@ -14,17 +14,20 @@
 #define ZOMBIEEVENT_HPP
 
 #include "Zombie.hpp"
+#include <stdlib.h>
+#include <time.h>
 
 class ZombieEvent {
 public:
-    static std::string type;
+    static std::string  type;
+    static std::string const  names[];
 
     ZombieEvent();
     ~ZombieEvent();
 
-    static void        setZombieType(std::string type);
-    static Zombie*     newZombie(std::string name);
-
+    static void         setZombieType(std::string type);
+    static Zombie*      newZombie(std::string name);
+    static Zombie*      randomChump();
 };
 
 

@@ -13,7 +13,10 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string zombieName, std::string zombieType) : name(zombieName), type(zombieType) {
-    announce();
+    std::cout << "You see a zombie coming your way" << std::endl;
+}
+
+Zombie::Zombie() {
 }
 
 Zombie::~Zombie() {
