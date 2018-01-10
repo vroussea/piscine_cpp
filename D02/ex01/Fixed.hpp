@@ -36,9 +36,7 @@ public:
     float               toFloat(void) const;
     int                 toInt(void) const;
 
-    long int            getFixedPointValue(void) const;
 private:
-    int                 _fixedPointValue;
     int                 _raw;
     static int const    _fractionalBits;
 };
