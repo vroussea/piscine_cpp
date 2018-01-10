@@ -28,8 +28,8 @@ public:
     int                 getRawBits(void) const;
     void                setRawBits(int const raw);
 private:
-    int                 _raw;
-    static int const    _fractionalBits;
+    int                 raw;
+    static int const    fractionalBits;
 };
 
 #endif
