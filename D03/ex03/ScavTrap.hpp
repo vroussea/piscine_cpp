@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 11:40:04 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/11 11:40:04 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/11 18:10:35 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/11 18:10:35 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef GITHUB_SCAVTRAP_HPP
+#define GITHUB_SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 #include <iostream>
@@ -19,24 +19,24 @@
 #include <stdlib.h>
 #include <time.h>
 
-class FragTrap : public ClapTrap {
+class ScavTrap : public ClapTrap {
 public:
-    FragTrap(void);
+    ScavTrap(void);
 
-    FragTrap(std::string name);
+    ScavTrap(std::string name);
 
-    FragTrap(FragTrap const &src);
+    ScavTrap(ScavTrap const &src);
 
-    ~FragTrap(void);
+    ~ScavTrap(void);
 
-    FragTrap &operator=(ClapTrap const &rhs);
+    ScavTrap &operator=(ClapTrap const &rhs);
 
     void                        rangedAttack(std::string const & target) const;
     void                        meleeAttack(std::string const & target) const;
-    void                        vaulthunter_dot_exe(std::string const & target);
+    void                        challengeNewcomer(void);
 private:
-    static std::string const    _randomAttack[];
-    static int const            _numberOfRandomAttacks;
+    static std::string const    _randomChallenges[];
+    static int const            _numberOfRandomChallenges;
 };
 
 #endif

@@ -35,6 +35,7 @@ public:
     void                        meleeAttack(std::string const & target) const;
     void                        vaulthunter_dot_exe(std::string const & target);
 private:
+
     static std::string const    _randomAttack[];
     static int const            _numberOfRandomAttacks;
 };
