@@ -22,10 +22,10 @@ std::string ScavTrap::intToString(int value) {
 }
 
 ScavTrap::ScavTrap(void) : _hitPoints(100), _maxHitPoints(100), _energyPoints(50), _maxEnergyPoints(50),
-                           _level(1), _name(ScavTrap::intToString(ScavTrap::_fragTrapNumber)), _meleeDamage(20),
+                           _level(1), _name(ScavTrap::intToString(ScavTrap::_scavTrapNumber)), _meleeDamage(20),
                            _rangedDamage(15), _armor(3){
     srand(time(NULL));
-    ScavTrap::_fragTrapNumber++;
+    ScavTrap::_scavTrapNumber++;
     std::cout << "I'm alive !!!!!" << std::endl;
 }
 
@@ -33,13 +33,13 @@ ScavTrap::ScavTrap(std::string name) : _hitPoints(100), _maxHitPoints(100), _ene
                                        _level(1), _name(name.size() > 0 ? name : "Jack"), _meleeDamage(20),
                                        _rangedDamage(15), _armor(3) {
     srand(time(NULL));
-    ScavTrap::_fragTrapNumber++;
+    ScavTrap::_scavTrapNumber++;
     std::cout << "Let's get this party started!" << std::endl;
 
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) {
-    ScavTrap::_fragTrapNumber++;
+    ScavTrap::_scavTrapNumber++;
     std::cout << "This time it'll be awesome, I promise!" << std::endl;
     *this = src;
 }
@@ -167,7 +167,7 @@ std::ostream    &operator<<(std::ostream & o, ScavTrap const & i) {
     return o;
 }
 
-int                 ScavTrap::_fragTrapNumber = 0;
+int                 ScavTrap::_scavTrapNumber = 0;
 
 int const           ScavTrap::_numberOfRandomChallenges = 6;
 

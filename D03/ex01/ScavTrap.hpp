@@ -56,7 +56,7 @@ private:
     unsigned int                _meleeDamage;
     unsigned int                _rangedDamage;
     unsigned int                _armor;
-    static int                  _fragTrapNumber;
+    static int                  _scavTrapNumber;
     static std::string const    _randomChallenges[];
     static int const            _numberOfRandomChallenges;
 };
