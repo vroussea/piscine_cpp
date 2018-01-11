@@ -12,7 +12,7 @@
 
 #include"FragTrap.hpp"
 
-std::string intToString(int value) {
+std::string FragTrap::intToString(int value) {
     std::ostringstream convert;
 
     convert << value;
@@ -22,7 +22,7 @@ std::string intToString(int value) {
 }
 
 FragTrap::FragTrap(void) : _hitPoints(100), _maxHitPoints(100), _energyPoints(100), _maxEnergyPoints(100),
-                           _level(1), _name(intToString(FragTrap::_fragTrapNumber)), _meleeDamage(30),
+                           _level(1), _name(FragTrap::intToString(FragTrap::_fragTrapNumber)), _meleeDamage(30),
                            _rangedDamage(20), _armor(5){
     srand(time(NULL));
     FragTrap::_fragTrapNumber++;
