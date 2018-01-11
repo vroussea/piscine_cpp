@@ -12,9 +12,8 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) {
+Fixed::Fixed(void) : _raw(0b00000000){
     std::cout << "Default constructor called" << std::endl;
-    setRawBits(0b00000000);
 }
 
 Fixed::Fixed(int const intValue) : _raw(intValue << Fixed::_fractionalBits) {
