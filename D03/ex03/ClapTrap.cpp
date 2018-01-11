@@ -118,9 +118,21 @@ int         ClapTrap::getArmor() const {
     return this->_armor;
 }
 
+void        ClapTrap::setHitPoints(unsigned int value) {
+    this->_hitPoints = (value > this->_maxHitPoints ? _maxHitPoints : value);
+}
+
 ClapTrap &ClapTrap::operator=(ClapTrap const &rhs) {
     if (this != &rhs) {
-
+        this->_hitPoints = rhs.getHitPoints();
+        this->_maxHitPoints = rhs.getMaxHitPoints();
+        this->_energyPoints = rhs.getEnergyPoints();
+        this->_maxEnergyPoints = rhs.getMaxEnergyPoints();
+        this->_level = rhs.getLevel();
+        this->_meleeDamage = rhs.getMeleeDamage();
+        this->_rangedDamage = rhs.getRangedDamage();
+        this->_armor = rhs.getArmor();
+        this->_name = rhs.getName();
     }
 
     return *this;

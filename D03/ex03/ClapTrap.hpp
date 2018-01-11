@@ -41,6 +41,7 @@ public:
     void                        takeDamage(unsigned int amount);
     void                        beRepaired(unsigned int amount);
 
+    void                        setHitPoints(unsigned int value);
     int                         getHitPoints() const;
     int                         getMaxHitPoints() const;
     int                         getEnergyPoints() const;

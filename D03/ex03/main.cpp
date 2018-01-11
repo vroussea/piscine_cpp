@@ -1,5 +1,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
+#include "NinjaTrap.hpp"
 #include <iostream>
 
 void    melee_attack(FragTrap * attacker, ScavTrap * target) {
@@ -31,8 +33,8 @@ int main(void) {
     std::cout << *f0 << std::endl << std::endl;
     std::cout << *f1 << std::endl << std::endl;
 
-    f1->meleeAttack(f0->name);
-    f0->rangedAttack(f1->name);
+    f1->meleeAttack(f0->getName());
+    f0->rangedAttack(f1->getName());
     bool dead = false;
     while (!dead) {
         if (f1->getHitPoints() - (f0->getMeleeDamage() - f1->getArmor()) <= 0) {
@@ -78,5 +80,29 @@ int main(void) {
 
     delete f1;
     delete f0;
+
+    NinjaTrap   n("");
+    ClapTrap    c;
+    ScavTrap    s("jean");
+    FragTrap    fr;
+    FragTrap    fr1 = fr;
+
+    fr1.meleeAttack(n.getName());
+    n.takeDamage(fr1.getMeleeDamage());
+    n.beRepaired(fr1.getMeleeDamage());
+
+    n.meleeAttack(fr1.getName());
+    fr1.takeDamage(n.getMeleeDamage());
+    n.rangedAttack((fr.getName()));
+    fr.takeDamage(n.getRangedDamage());
+    std::cout << n << std::endl << std::endl;
+    n.ninjaShoebox(fr);
+    std::cout << n << std::endl << std::endl;
+    n.ninjaShoebox(s);
+    NinjaTrap n1(n);
+    n.ninjaShoebox(n1);
+    std::cout << c << std::endl << std::endl;
+    n.ninjaShoebox(c);
+    std::cout << c << std::endl << std::endl;
     return 1;
 }

@@ -31,8 +31,8 @@ int main(void) {
     std::cout << *f0 << std::endl << std::endl;
     std::cout << *f1 << std::endl << std::endl;
 
-    f1->meleeAttack(f0->name);
-    f0->rangedAttack(f1->name);
+    f1->meleeAttack(f0->getName());
+    f0->rangedAttack(f1->getName());
     bool dead = false;
     while (!dead) {
         if (f1->getHitPoints() - (f0->getMeleeDamage() - f1->getArmor()) <= 0) {

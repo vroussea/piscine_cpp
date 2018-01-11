@@ -13,10 +13,17 @@
 #ifndef NINJATRAP_HPP
 #define NINJATRAP_HPP
 
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-<iostream>
+#include <iostream>
+#include <iostream>
+#include <sstream>
+#include <stdlib.h>
+#include <time.h>
 
-class NinjaTrap {
+class NinjaTrap : public ClapTrap {
 public:
     NinjaTrap(void);
 
@@ -26,11 +33,14 @@ public:
 
     ~NinjaTrap(void);
 
-    NinjaTrap &operator=(NinjaTrap const &rhs);
+    NinjaTrap &operator=(ClapTrap const &rhs);
 
     void                        rangedAttack(std::string const & target) const;
     void                        meleeAttack(std::string const & target) const;
-    void                        vaulthunter_dot_exe(std::string const & target);
+    void                        ninjaShoebox(ClapTrap & target);
+    void                        ninjaShoebox(ScavTrap & target);
+    void                        ninjaShoebox(FragTrap & target);
+    void                        ninjaShoebox(NinjaTrap & target);
 };
 
 #endif
