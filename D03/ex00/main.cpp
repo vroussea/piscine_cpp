@@ -55,7 +55,7 @@ int main(void) {
 
         }
     }
-    f1 = new FragTrap("Daniel");
+    f1 = new FragTrap(*f0);
     f0->beRepaired(20);
     std::cout << *f0 << std::endl << std::endl;
     f0->beRepaired(80);

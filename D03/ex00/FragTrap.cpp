@@ -40,7 +40,7 @@ FragTrap::FragTrap(std::string name) : _hitPoints(100), _maxHitPoints(100), _ene
 
 }
 
-FragTrap::FragTrap(FragTrap const &src) : _name(src.getName()) {
+FragTrap::FragTrap(FragTrap const &src) {
     FragTrap::_fragTrapNumber++;
     std::cout << "O-KAY! Thanks for giving me a second chance, God. I really appreciate it." << std::endl;
     *this = src;
@@ -146,6 +146,7 @@ FragTrap &FragTrap::operator=(FragTrap const &rhs) {
         this->_meleeDamage = rhs.getMeleeDamage();
         this->_rangedDamage = rhs.getRangedDamage();
         this->_armor = rhs.getArmor();
+        this->_name = rhs.getName();
     }
 
     return *this;

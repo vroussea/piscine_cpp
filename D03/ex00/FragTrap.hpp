@@ -52,7 +52,7 @@ private:
     unsigned int                _energyPoints;
     unsigned int                _maxEnergyPoints;
     int                         _level;
-    std::string const           _name;
+    std::string                 _name;
     unsigned int                _meleeDamage;
     unsigned int                _rangedDamage;
     unsigned int                _armor;
