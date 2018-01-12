@@ -47,7 +47,7 @@ void        NinjaTrap::meleeAttack(std::string const & target) const {
 
 void        NinjaTrap::ninjaShoebox(ClapTrap & target) {
     if (this->_energyPoints < 20)
-        std::cout << "NOT ENOUGH Energ............." << std::endl;
+        std::cout << "This shadow cannot DESTROY filthy ClapTraps because it lacks energy !" << std::endl;
     else {
         this->_energyPoints -= 20;
 
@@ -60,7 +60,7 @@ void        NinjaTrap::ninjaShoebox(ClapTrap & target) {
 
 void        NinjaTrap::ninjaShoebox(ScavTrap & target) {
     if (this->_energyPoints < 25)
-        std::cout << "NOT ENOUGH Energ............." << std::endl;
+        std::cout << "This shadow cannot do tricks because it lacks energy !" << std::endl;
     else {
         this->_energyPoints -= 25;
 
@@ -73,12 +73,12 @@ void        NinjaTrap::ninjaShoebox(ScavTrap & target) {
 
 void        NinjaTrap::ninjaShoebox(FragTrap & target) {
     if (this->_energyPoints < 25)
-        std::cout << "NOT ENOUGH Energ............." << std::endl;
+        std::cout << "This shadow cannot do surprise attack because it lacks energy !" << std::endl;
     else {
         this->_energyPoints -= 25;
 
         std::cout << "SH4D0W-TP " << this->_name;
-        std::cout << "tries to do a sneaky attack on " << target.getName();
+        std::cout << " tries to do a sneaky attack on " << target.getName();
         std::cout << ". But because this FragTrap won't be fooled by this cheap trick it failed.";
         std::cout << " It hurts itself in its confusion." << std::endl;
         this->takeDamage(1);
@@ -87,7 +87,7 @@ void        NinjaTrap::ninjaShoebox(FragTrap & target) {
 
 void        NinjaTrap::ninjaShoebox(NinjaTrap & target) {
     if (this->_energyPoints < 1)
-        std::cout << "NOT ENOUGH Energ............." << std::endl;
+        std::cout << "This shadow cannot dance because it lacks energy !" << std::endl;
     else {
         this->_energyPoints -= 1;
 

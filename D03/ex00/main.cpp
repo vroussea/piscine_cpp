@@ -1,72 +1,63 @@
 #include "FragTrap.hpp"
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
 
+void    fragtraps(void) {
+    std::cout << "CREATING 4 FRAGTRAPS !"  << std::endl << std::endl;
 
-void    melee_attack(FragTrap * attacker, FragTrap * target) {
-    attacker->meleeAttack(target->getName());
-    target->takeDamage(attacker->getMeleeDamage());
-    std::cout << std::endl;
-}
+    FragTrap    f0;
+    FragTrap    f1("");
+    FragTrap    f2("Marcel");
+    FragTrap    f3(f2);
 
-void    ranged_attack(FragTrap * attacker, FragTrap * target) {
-    attacker->rangedAttack(target->getName());
-    target->takeDamage(attacker->getRangedDamage());
-    std::cout << std::endl;
-}
+    std::cout << std::endl << "DISPLAYING 4 FRAGTRAPS !"  << std::endl << std::endl;
 
-void    vaulthunter_dot_exe_attack(FragTrap * attacker, FragTrap * target) {
-    attacker->vaulthunter_dot_exe(target->getName());
-    if (attacker->getEnergyPoints() >= 25)
-        target->takeDamage(attacker->getMeleeDamage());
+    std::cout << f0 << std::endl << std::endl;
+    std::cout << f1 << std::endl << std::endl;
+    std::cout << f2 << std::endl << std::endl;
+    std::cout << f3 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING FRAGTRAP MELEE ATTACK !"  << std::endl << std::endl;
+
+    std::cout << f1 << std::endl << std::endl;
+    f0.meleeAttack(f1.getName());
+    f1.takeDamage(f0.getMeleeDamage());
+    std::cout << std::endl << f1 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING FRAGTRAP RANGED ATTACK !"  << std::endl << std::endl;
+
+    std::cout << f2 << std::endl << std::endl;
+    f0.rangedAttack(f2.getName());
+    f2.takeDamage(f0.getRangedDamage());
+    std::cout << std::endl << f2 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING FRAGTRAP MAX DAMAGE AND FRAGTRAP MAX REPAIR !"  << std::endl << std::endl;
+
+    std::cout << f3 << std::endl << std::endl;
+    std::cout << "SENDING 110 DAMAGE POINTS TO FRAGTRAP :" << std::endl;
+    f3.takeDamage(110);
+    std::cout << f3 << std::endl << std::endl;
+    std::cout << "HEALING 20 DAMAGE POINTS TO FRAGTRAP :" << std::endl;
+    f3.beRepaired(20);
+    std::cout << f3 << std::endl << std::endl;
+    std::cout << "HEALING 200 DAMAGE POINTS TO FRAGTRAP :" << std::endl;
+    f3.beRepaired(200);
+    std::cout << f3 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING FRAGTRAP VAULTHUNTER_DOT_EXE !"  << std::endl << std::endl;
+
+    int i = 0;
+    while (i < 10) {
+        f3.vaulthunter_dot_exe(f0.getName());
+        f0.takeDamage(f3.getMeleeDamage());
+        std::cout << f3 << std::endl << std::endl;
+        i++;
+    }
+
+    std::cout << std::endl << "EXITING FUNCTION !"  << std::endl << std::endl;
 }
 
 int main(void) {
-    FragTrap *f0 = new FragTrap();
-    FragTrap *f1 = new FragTrap("");
+    fragtraps();
 
-    std::cout << *f0 << std::endl << std::endl;
-    std::cout << *f1 << std::endl << std::endl;
-
-    bool dead = false;
-    while (!dead) {
-        if (f1->getHitPoints() - (f0->getMeleeDamage() - f1->getArmor()) <= 0) {
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            std::cout << *f0 << std::endl << std::endl;
-            vaulthunter_dot_exe_attack(f0, f1);
-        }
-        else
-            melee_attack(f0, f1);
-        std::cout << *f1 << std::endl << std::endl;
-        if (f1->getHitPoints() == 0) {
-            vaulthunter_dot_exe_attack(f0, f1);
-            std::cout << *f1 << std::endl << std::endl;
-            delete f1;
-            dead = true;
-        }
-        else {
-            f1->beRepaired(5);
-            std::cout << *f1 << std::endl << std::endl;
-
-        }
-    }
-    f1 = new FragTrap(*f0);
-    f0->beRepaired(20);
-    std::cout << *f0 << std::endl << std::endl;
-    f0->beRepaired(80);
-    std::cout << *f0 << std::endl << std::endl;
-    f0->beRepaired(80000);
-    vaulthunter_dot_exe_attack(f1, f0);
-    vaulthunter_dot_exe_attack(f1, f0);
-    vaulthunter_dot_exe_attack(f1, f0);
-    vaulthunter_dot_exe_attack(f1, f0);
-    vaulthunter_dot_exe_attack(f1, f0);
-    delete f1;
-    delete f0;
     return 1;
 }

@@ -4,105 +4,217 @@
 #include "NinjaTrap.hpp"
 #include <iostream>
 
-void    melee_attack(FragTrap * attacker, ScavTrap * target) {
-    attacker->meleeAttack(target->getName());
-    target->takeDamage(attacker->getMeleeDamage());
-    std::cout << std::endl;
+void    fragtraps(void) {
+    std::cout << "CREATING 4 FRAGTRAPS !"  << std::endl << std::endl;
+
+    FragTrap    f0;
+    FragTrap    f1("");
+    FragTrap    f2("Marcel");
+    FragTrap    f3(f2);
+
+    std::cout << std::endl << "DISPLAYING 4 FRAGTRAPS !"  << std::endl << std::endl;
+
+    std::cout << f0 << std::endl << std::endl;
+    std::cout << f1 << std::endl << std::endl;
+    std::cout << f2 << std::endl << std::endl;
+    std::cout << f3 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING FRAGTRAP MELEE ATTACK !"  << std::endl << std::endl;
+
+    std::cout << f1 << std::endl << std::endl;
+    f0.meleeAttack(f1.getName());
+    f1.takeDamage(f0.getMeleeDamage());
+    std::cout << std::endl << f1 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING FRAGTRAP RANGED ATTACK !"  << std::endl << std::endl;
+
+    std::cout << f2 << std::endl << std::endl;
+    f0.rangedAttack(f2.getName());
+    f2.takeDamage(f0.getRangedDamage());
+    std::cout << std::endl << f2 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING FRAGTRAP MAX DAMAGE AND FRAGTRAP MAX REPAIR !"  << std::endl << std::endl;
+
+    std::cout << f3 << std::endl << std::endl;
+    std::cout << "SENDING 110 DAMAGE POINTS TO FRAGTRAP :" << std::endl;
+    f3.takeDamage(110);
+    std::cout << f3 << std::endl << std::endl;
+    std::cout << "HEALING 20 DAMAGE POINTS TO FRAGTRAP :" << std::endl;
+    f3.beRepaired(20);
+    std::cout << f3 << std::endl << std::endl;
+    std::cout << "HEALING 200 DAMAGE POINTS TO FRAGTRAP :" << std::endl;
+    f3.beRepaired(200);
+    std::cout << f3 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING FRAGTRAP VAULTHUNTER_DOT_EXE !"  << std::endl << std::endl;
+
+    int i = 0;
+    while (i < 10) {
+        f3.vaulthunter_dot_exe(f0.getName());
+        f0.takeDamage(f3.getMeleeDamage());
+        std::cout << f3 << std::endl << std::endl;
+        i++;
+    }
+
+    std::cout << std::endl << "EXITING FUNCTION !"  << std::endl << std::endl;
 }
 
-void    ranged_attack(ScavTrap * attacker, FragTrap * target) {
-    attacker->rangedAttack(target->getName());
-    target->takeDamage(attacker->getRangedDamage());
-    std::cout << std::endl;
+void    scavtraps(void) {
+    std::cout << "CREATING 4 SCAVTRAPS !"  << std::endl << std::endl;
+
+    ScavTrap    s0;
+    ScavTrap    s1("");
+    ScavTrap    s2("Marcel");
+    ScavTrap    s3(s2);
+
+    std::cout << std::endl << "DISPLAYING 4 SCAVTRAPS !"  << std::endl << std::endl;
+
+    std::cout << s0 << std::endl << std::endl;
+    std::cout << s1 << std::endl << std::endl;
+    std::cout << s2 << std::endl << std::endl;
+    std::cout << s3 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING SCAVTRAP MELEE ATTACK !"  << std::endl << std::endl;
+
+    std::cout << s1 << std::endl << std::endl;
+    s0.meleeAttack(s1.getName());
+    s1.takeDamage(s0.getMeleeDamage());
+    std::cout << std::endl << s1 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING SCAVTRAP RANGED ATTACK !"  << std::endl << std::endl;
+
+    std::cout << s2 << std::endl << std::endl;
+    s0.rangedAttack(s2.getName());
+    s2.takeDamage(s0.getRangedDamage());
+    std::cout << std::endl << s2 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING SCAVTRAP MAX DAMAGE AND SCAVTRAP MAX REPAIR !"  << std::endl << std::endl;
+
+    std::cout << s3 << std::endl << std::endl;
+    std::cout << "SENDING 110 DAMAGE POINTS TO SCAVTRAP :" << std::endl;
+    s3.takeDamage(110);
+    std::cout << s3 << std::endl << std::endl;
+    std::cout << "HEALING 20 DAMAGE POINTS TO SCAVTRAP :" << std::endl;
+    s3.beRepaired(20);
+    std::cout << s3 << std::endl << std::endl;
+    std::cout << "HEALING 200 DAMAGE POINTS TO SCAVTRAP :" << std::endl;
+    s3.beRepaired(200);
+    std::cout << s3 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING SCAVTRAP CHALLENGENEWCOMER !"  << std::endl << std::endl;
+
+    int i = 0;
+    while (i < 10) {
+        s3.challengeNewcomer();
+        std::cout << s3 << std::endl << std::endl;
+        i++;
+    }
+
+    std::cout << std::endl << "EXITING FUNCTION !"  << std::endl << std::endl;
 }
 
-void    vaulthunter_dot_exe_attack(FragTrap * attacker, ScavTrap * target) {
-    attacker->vaulthunter_dot_exe(target->getName());
-    if (attacker->getEnergyPoints() >= 25)
-        target->takeDamage(attacker->getMeleeDamage());
+void    claptraps(void) {
+    std::cout << "CREATING 4 CLAPTRAPS !"  << std::endl << std::endl;
+
+    ClapTrap    c0;
+    ClapTrap    c1(100, 100, 50, 50, 1, "", 20, 15, 3);
+    ClapTrap    c2(100, 100, 100, 100, 1, "Daniel", 30, 20, 5);
+    ClapTrap    c3(c2);
+
+    std::cout << std::endl << "DISPLAYING 4 CLAPTRAPS !"  << std::endl << std::endl;
+
+    std::cout << c0 << std::endl << std::endl;
+    std::cout << c1 << std::endl << std::endl;
+    std::cout << c2 << std::endl << std::endl;
+    std::cout << c3 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING CLAPTRAP MAX DAMAGE AND CLAPTRAP MAX REPAIR !"  << std::endl << std::endl;
+
+    std::cout << c3 << std::endl << std::endl;
+    std::cout << "SENDING 110 DAMAGE POINTS TO CLAPTRAP :" << std::endl;
+    c3.takeDamage(110);
+    std::cout << c3 << std::endl << std::endl;
+    std::cout << "HEALING 20 DAMAGE POINTS TO CLAPTRAP :" << std::endl;
+    c3.beRepaired(20);
+    std::cout << c3 << std::endl << std::endl;
+    std::cout << "HEALING 200 DAMAGE POINTS TO CLAPTRAP :" << std::endl;
+    c3.beRepaired(200);
+    std::cout << c3 << std::endl << std::endl;
+
+    std::cout << std::endl << "EXITING FUNCTION !"  << std::endl << std::endl;
 }
 
-void    challenge(ScavTrap * challenger) {
-    challenger->challengeNewcomer();
+void    ninjatraps(void) {
+    std::cout << "CREATING 4 NINJATRAPS !"  << std::endl << std::endl;
+
+    NinjaTrap    n0;
+    NinjaTrap    n1("");
+    NinjaTrap    n2("Marcel");
+    NinjaTrap    n3(n2);
+
+    std::cout << std::endl << "DISPLAYING 4 NINJATRAPS !"  << std::endl << std::endl;
+
+    std::cout << n0 << std::endl << std::endl;
+    std::cout << n1 << std::endl << std::endl;
+    std::cout << n2 << std::endl << std::endl;
+    std::cout << n3 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING NINJATRAP MELEE ATTACK !"  << std::endl << std::endl;
+
+    std::cout << n1 << std::endl << std::endl;
+    n0.meleeAttack(n1.getName());
+    n1.takeDamage(n0.getMeleeDamage());
+    std::cout << std::endl << n1 << std::endl << std::endl;
+
+    std::cout << std::endl << "STARTING NINJATRAP RANGED ATTACK !"  << std::endl << std::endl;
+
+    std::cout << n2 << std::endl << std::endl;
+    n0.rangedAttack(n2.getName());
+    n2.takeDamage(n0.getRangedDamage());
+    std::cout << std::endl << n2 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING NINJATRAP MAX DAMAGE AND NINJATRAP MAX REPAIR !"  << std::endl << std::endl;
+
+    std::cout << n3 << std::endl << std::endl;
+    std::cout << "SENDING 110 DAMAGE POINTS TO NINJATRAP :" << std::endl;
+    n3.takeDamage(110);
+    std::cout << n3 << std::endl << std::endl;
+    std::cout << "HEALING 20 DAMAGE POINTS TO NINJATRAP :" << std::endl;
+    n3.beRepaired(20);
+    std::cout << n3 << std::endl << std::endl;
+    std::cout << "HEALING 200 DAMAGE POINTS TO NINJATRAP :" << std::endl;
+    n3.beRepaired(200);
+    std::cout << n3 << std::endl << std::endl;
+
+    std::cout << std::endl << "TESTING NINJATRAP NINJASHOEBOX !"  << std::endl << std::endl;
+
+    FragTrap    f4;
+    ClapTrap    c4;
+    ScavTrap    s4;
+    NinjaTrap   n4;
+
+    int i = 0;
+    while (i < 10) {
+        n3.ninjaShoebox(n4);
+        n3.ninjaShoebox(f4);
+        n3.ninjaShoebox(c4);
+        std::cout << c4 << std::endl;
+        n3.ninjaShoebox(s4);
+        std::cout << n3 << std::endl << std::endl;
+        i++;
+    }
+
+    std::cout << std::endl << "EXITING FUNCTION !"  << std::endl << std::endl;
 }
 
 int main(void) {
-    FragTrap *f0 = new FragTrap();
-    ScavTrap *f1 = new ScavTrap();
+    fragtraps();
+    std::cout << std::endl;
+    scavtraps();
+    std::cout << std::endl;
+    claptraps();
+    std::cout << std::endl;
+    ninjatraps();
 
-    std::cout << *f0 << std::endl << std::endl;
-    std::cout << *f1 << std::endl << std::endl;
-
-    f1->meleeAttack(f0->getName());
-    f0->rangedAttack(f1->getName());
-    bool dead = false;
-    while (!dead) {
-        if (f1->getHitPoints() - (f0->getMeleeDamage() - f1->getArmor()) <= 0) {
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            ranged_attack(f1, f0);
-            std::cout << *f0 << std::endl << std::endl;
-            vaulthunter_dot_exe_attack(f0, f1);
-        }
-        else
-            melee_attack(f0, f1);
-        std::cout << *f1 << std::endl << std::endl;
-        if (f1->getHitPoints() == 0) {
-            vaulthunter_dot_exe_attack(f0, f1);
-            std::cout << *f1 << std::endl << std::endl;
-            delete f1;
-            dead = true;
-        }
-        else {
-            f1->beRepaired(5);
-            std::cout << *f1 << std::endl << std::endl;
-
-        }
-    }
-    f1 = new ScavTrap("Daniel");
-    ScavTrap f2(*f1);
-    std::cout << f2 << std::endl << std::endl;
-    std::cout << *f1 << std::endl << std::endl;
-    challenge(f1);
-    std::cout << *f1 << std::endl << std::endl;
-    challenge(f1);
-    std::cout << *f1 << std::endl << std::endl;
-    challenge(f1);
-    std::cout << *f1 << std::endl << std::endl;
-    f1->takeDamage(100);
-    f1->beRepaired(20);
-    std::cout << *f1 << std::endl << std::endl;
-    f0->beRepaired(80);
-    std::cout << *f0 << std::endl << std::endl;
-    f1->beRepaired(80000);
-
-    delete f1;
-    delete f0;
-
-    NinjaTrap   n("");
-    ClapTrap    c;
-    ScavTrap    s("jean");
-    FragTrap    fr;
-    FragTrap    fr1 = fr;
-
-    fr1.meleeAttack(n.getName());
-    n.takeDamage(fr1.getMeleeDamage());
-    n.beRepaired(fr1.getMeleeDamage());
-
-    n.meleeAttack(fr1.getName());
-    fr1.takeDamage(n.getMeleeDamage());
-    n.rangedAttack((fr.getName()));
-    fr.takeDamage(n.getRangedDamage());
-    std::cout << n << std::endl << std::endl;
-    n.ninjaShoebox(fr);
-    std::cout << n << std::endl << std::endl;
-    n.ninjaShoebox(s);
-    NinjaTrap n1(n);
-    n.ninjaShoebox(n1);
-    std::cout << c << std::endl << std::endl;
-    n.ninjaShoebox(c);
-    std::cout << c << std::endl << std::endl;
     return 1;
 }

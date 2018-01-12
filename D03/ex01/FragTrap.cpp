@@ -69,7 +69,7 @@ void        FragTrap::vaulthunter_dot_exe(std::string const & target) {
         this->_energyPoints -= 25;
         int random = rand() % FragTrap::_numberOfRandomAttacks;
 
-        std::cout << "FR4G-TP" << this->_name;
+        std::cout << "FR4G-TP " << this->_name;
         std::cout << FragTrap::_randomAttack[random] << target;
         std::cout << ", causing " << this->_meleeDamage << " points of damage !" << std::endl;
     }
