@@ -13,11 +13,10 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(void) {
-
 }
 
-Enemy::Enemy() {
-
+Enemy::Enemy(int hp, std::string const & type) : _type(type) {
+    setHP(hp);
 }
 
 Enemy::Enemy(Enemy const &src) {
@@ -25,19 +24,24 @@ Enemy::Enemy(Enemy const &src) {
 }
 
 Enemy::~Enemy(void) {
-
 }
 
-Enemy &Enemy::operator=(Enemy const &rhs) {
-    if (this != &rhs) {
+void        Enemy::takeDamage(int amount) {
+    setHP(this->getHP() - (amount < 0 ? 0 : amount));
+}
 
-    }
+void        Enemy::setHP(int amount) {
+    this->_hp = amount;
+}
 
+std::string const   Enemy::getType() const {
+    return this->_type;
+}
+
+int                 Enemy::getHP() const {
+    return this->_hp;
+}
+
+Enemy &Enemy::operator=(Enemy const &) {
     return *this;
-}
-
-std::ostream &operator<<(std::ostream &o, Enemy const &i) {
-    o << "The value of  is : ";
-
-    return o;
 }

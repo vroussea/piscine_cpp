@@ -27,19 +27,20 @@ public:
     int                 getDamage() const;
 
     virtual void        attack() const = 0;
+
 protected:
     AWeapon(void);
 
     void                setAPCost(int amount);
     void                setDamage(int amount);
-    void                setName(std::string name);
+
 private:
-    std::string         _name;
+    std::string const   _name;
     int                 _apCost;
     int                 _damage;
 
     AWeapon(AWeapon const &src);
-    AWeapon &operator=(AWeapon const &rhs);
+    AWeapon &operator=(AWeapon const &);
 };
 
 #endif

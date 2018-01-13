@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   BBGun.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 19:46:37 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/12 19:46:37 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/13 11:33:43 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/13 11:33:43 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-#define RADSCORPION_HPP
+#include "BBGun.hpp"
 
-#include "Enemy.hpp"
-#include <iostream>
+BBGun::BBGun(void) : AWeapon("BB Gun", 1, 1) {
+}
 
-class RadScorpion : public Enemy {
-public:
-    RadScorpion(void);
+BBGun::BBGun(int) {
+}
 
-    virtual ~RadScorpion(void);
+BBGun::BBGun(BBGun const &src) {
+    *this = src;
+}
 
-private:
-    RadScorpion(int);
-    RadScorpion(RadScorpion const &src);
-    RadScorpion &operator=(RadScorpion const &);
+BBGun::~BBGun(void) {
+}
 
-};
+void    BBGun::attack() const {
+    std::cout << "* POP ... pick *" << std::endl;
+}
 
-#endif
+BBGun &BBGun::operator=(BBGun const &) {
+    return *this;
+}

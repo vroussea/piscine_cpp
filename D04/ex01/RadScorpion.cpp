@@ -12,12 +12,11 @@
 
 #include "RadScorpion.hpp"
 
-RadScorpion::RadScorpion(void) {
-
+RadScorpion::RadScorpion(void) : Enemy(80, "RadScorpion") {
+    std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion() {
-
+RadScorpion::RadScorpion(int) {
 }
 
 RadScorpion::RadScorpion(RadScorpion const &src) {
@@ -25,19 +24,9 @@ RadScorpion::RadScorpion(RadScorpion const &src) {
 }
 
 RadScorpion::~RadScorpion(void) {
-
+    std::cout << "* SPROTCH *" << std::endl;
 }
 
-RadScorpion &RadScorpion::operator=(RadScorpion const &rhs) {
-    if (this != &rhs) {
-
-    }
-
+RadScorpion &RadScorpion::operator=(RadScorpion const &) {
     return *this;
-}
-
-std::ostream &operator<<(std::ostream &o, RadScorpion const &i) {
-    o << "The value of  is : ";
-
-    return o;
 }

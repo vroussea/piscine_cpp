@@ -13,25 +13,22 @@
 #ifndef SUPERMUTANT_HPP
 #define SUPERMUTANT_HPP
 
-
+#include "Enemy.hpp"
 #include <iostream>
 
-class SuperMutant {
+class SuperMutant : public Enemy {
 public:
     SuperMutant(void);
 
-    SuperMutant();
+    virtual ~SuperMutant(void);
 
-    SuperMutant(SuperMutant const &src);
-
-    ~SuperMutant(void);
-
-    SuperMutant &operator=(SuperMutant const &rhs);
+    virtual void        takeDamage(int);
 
 private:
+    SuperMutant(int);
+    SuperMutant(SuperMutant const &src);
+    SuperMutant &operator=(SuperMutant const &);
+
 };
-
-std::ostream &operator<<(std::ostream &o, SuperMutant const &i);
-
 
 #endif

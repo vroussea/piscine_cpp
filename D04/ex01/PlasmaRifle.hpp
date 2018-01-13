@@ -23,10 +23,12 @@ public:
     virtual ~PlasmaRifle(void);
 
     virtual void        attack() const;
+
 private:
-    PlasmaRifle(std::string const & name, int apcost, int damage);
-    PlasmaRifle &operator=(PlasmaRifle const &rhs);
+    PlasmaRifle(int);
     PlasmaRifle(PlasmaRifle const &src);
+    PlasmaRifle &operator=(PlasmaRifle const &);
+
 };
 
 #endif

@@ -12,12 +12,11 @@
 
 #include "SuperMutant.hpp"
 
-SuperMutant::SuperMutant(void) {
-
+SuperMutant::SuperMutant(void) : Enemy(170, "Super Mutant") {
+    std::cout << "Gaaah. Me want smash heads !" << std::endl;
 }
 
-SuperMutant::SuperMutant() {
-
+SuperMutant::SuperMutant(int) {
 }
 
 SuperMutant::SuperMutant(SuperMutant const &src) {
@@ -25,19 +24,14 @@ SuperMutant::SuperMutant(SuperMutant const &src) {
 }
 
 SuperMutant::~SuperMutant(void) {
-
+    std::cout << "Aaargh ..." << std::endl;
 }
 
-SuperMutant &SuperMutant::operator=(SuperMutant const &rhs) {
-    if (this != &rhs) {
+void    SuperMutant::takeDamage(int amount) {
+    amount -= 3;
+    Enemy::takeDamage(amount);
+}
 
-    }
-
+SuperMutant &SuperMutant::operator=(SuperMutant const &) {
     return *this;
-}
-
-std::ostream &operator<<(std::ostream &o, SuperMutant const &i) {
-    o << "The value of  is : ";
-
-    return o;
 }

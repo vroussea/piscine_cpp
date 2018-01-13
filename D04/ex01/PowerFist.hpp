@@ -23,10 +23,12 @@ public:
     virtual ~PowerFist(void);
 
     virtual void        attack() const;
+
 private:
-    PowerFist(std::string const & name, int apcost, int damage);
-    PowerFist &operator=(PowerFist const &rhs);
+    PowerFist(int);
     PowerFist(PowerFist const &src);
+    PowerFist &operator=(PowerFist const &);
+
 };
 
 #endif

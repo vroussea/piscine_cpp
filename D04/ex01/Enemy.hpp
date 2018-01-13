@@ -18,20 +18,26 @@
 
 class Enemy {
 public:
+    Enemy(int hp, std::string const & type);
+
+    virtual ~Enemy(void);
+
+    virtual void        takeDamage(int);
+
+    std::string const   getType() const;
+    int                 getHP() const;
+
+
+protected:
+    Enemy &operator=(Enemy const &);
+    Enemy(Enemy const &src);
     Enemy(void);
 
-    Enemy();
-
-    Enemy(Enemy const &src);
-
-    ~Enemy(void);
-
-    Enemy &operator=(Enemy const &rhs);
-
 private:
+    void                setHP(int);
+
+    std::string const   _type;
+    int                 _hp;
 };
-
-std::ostream &operator<<(std::ostream &o, Enemy const &i);
-
 
 #endif

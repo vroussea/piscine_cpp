@@ -47,16 +47,6 @@ void                AWeapon::setDamage(int amount) {
     this->_damage = (amount > 0 ? amount : 1);
 }
 
-void                AWeapon::setName(std::string name) {
-    this->_name = name;
-}
-
-AWeapon &AWeapon::operator=(AWeapon const &rhs) {
-    if (this != &rhs) {
-        this->setName(rhs.getName());
-        this->setAPCost(rhs.getAPCost());
-        this->setDamage(rhs.getDamage());
-    }
-
+AWeapon &AWeapon::operator=(AWeapon const &) {
     return *this;
 }

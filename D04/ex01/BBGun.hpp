@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   BBGun.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 19:46:37 by vroussea          #+#    #+#             */
-/*   Updated: 2018/01/12 19:46:37 by vroussea         ###   ########.fr       */
+/*   Created: 2018/01/13 11:33:41 by vroussea          #+#    #+#             */
+/*   Updated: 2018/01/13 11:33:41 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-#define RADSCORPION_HPP
+#ifndef BBGUN_HPP
+#define BBGUN_HPP
 
-#include "Enemy.hpp"
+#include "AWeapon.hpp"
 #include <iostream>
 
-class RadScorpion : public Enemy {
+class BBGun : public AWeapon {
 public:
-    RadScorpion(void);
+    BBGun(void);
+    
+    virtual ~BBGun(void);
 
-    virtual ~RadScorpion(void);
-
+    virtual void        attack() const;
+    
 private:
-    RadScorpion(int);
-    RadScorpion(RadScorpion const &src);
-    RadScorpion &operator=(RadScorpion const &);
+    BBGun(int);
+    BBGun(BBGun const &src);
+    BBGun &operator=(BBGun const &);
 
 };
 

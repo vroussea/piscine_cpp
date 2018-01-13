@@ -12,10 +12,10 @@
 
 #include "PowerFist.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Plasma Rifle", 5, 21) {
+PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50) {
 }
 
-PowerFist::PowerFist(std::string const & name, int apcost, int damage) : AWeapon(name, apcost, damage) {
+PowerFist::PowerFist(int) {
 }
 
 PowerFist::PowerFist(PowerFist const &src) {
@@ -29,12 +29,6 @@ void    PowerFist::attack() const {
     std::cout << "* pschhh... SBAM! *" << std::endl;
 }
 
-PowerFist &PowerFist::operator=(PowerFist const &rhs) {
-    if (this != &rhs) {
-        this->setName(rhs.getName());
-        this->setAPCost(rhs.getAPCost());
-        this->setDamage(rhs.getDamage());
-    }
-
+PowerFist &PowerFist::operator=(PowerFist const &) {
     return *this;
 }
