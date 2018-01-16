@@ -13,25 +13,20 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
 public:
     ShrubberyCreationForm(std::string target);
 
     virtual ~ShrubberyCreationForm(void);
 
-    virtual void        execute(Bureaucrat const &executor) const;
+    virtual void        action(void) const;
 
     std::string const   concatStrings(std::string const str1, std::string const str2) const;
-
-    class CannotOpenFileException : public std::exception {
-    public:
-        virtual const char  *what() const throw();
-    };
 
 private:
     ShrubberyCreationForm(void) {};

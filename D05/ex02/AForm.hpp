@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <stdexcept>
 #include "Bureaucrat.hpp"
@@ -19,11 +19,11 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 public:
-    Form(std::string name, int signGrade, int exeGrade, std::string target);
+    AForm(std::string name, int signGrade, int exeGrade, std::string target);
 
-    virtual ~Form(void);
+    virtual ~AForm(void);
 
     void                beSigned(Bureaucrat const &bureaucrat);
 
@@ -33,7 +33,9 @@ public:
     int                 getExecGrade() const;
     bool                isSigned() const;
 
-    virtual void        execute(Bureaucrat const &executor) const = 0;
+    void            execute(Bureaucrat const &executor) const;
+
+    virtual void    action(void) const = 0;
 
     class GradeTooHighException : public std::exception {
     public:
@@ -50,8 +52,13 @@ public:
         virtual const char  *what() const throw();
     };
 
+    class CannotOpenFileException : public std::exception {
+    public:
+        virtual const char  *what() const throw();
+    };
+
 protected:
-    Form(void) : _signGrade(0), _execGrade(0) {};
+    AForm(void) : _signGrade(0), _execGrade(0) {};
 
     std::string const   _name;
     int const           _signGrade;
@@ -60,15 +67,15 @@ protected:
     bool                _signed;
 
 private:
-    Form(Form const &) : _signGrade(0), _execGrade(0) {};
-    Form &operator=(Form const &);
+    AForm(AForm const &) : _signGrade(0), _execGrade(0) {};
+    AForm &operator=(AForm const &);
 
     void                isSignGradeGood(int newGrade) const;
     void                isExecGradeGood(int newGrade) const;
 
 };
 
-std::ostream &operator<<(std::ostream &o, Form const &i);
+std::ostream &operator<<(std::ostream &o, AForm const &i);
 
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-const char  *Form::GradeTooHighException::what() const throw() {
+const char  *AForm::GradeTooHighException::what() const throw() {
     return "grade is too high";
 }
 
-const char  *Form::GradeTooLowException::what() const throw() {
+const char  *AForm::GradeTooLowException::what() const throw() {
     return "grade is too low";
 }
 
-const char  *Form::FormNotSignedException::what() const throw() {
+const char  *AForm::FormNotSignedException::what() const throw() {
     return "form is not signed";
 }
 
-Form::Form(std::string name, int signGrade, int execGrade, std::string target) : _name(name), _signGrade(signGrade),
+const char  *AForm::CannotOpenFileException::what() const throw() {
+    return "cannot open file";
+}
+
+AForm::AForm(std::string name, int signGrade, int execGrade, std::string target) : _name(name), _signGrade(signGrade),
                                                                                  _execGrade(execGrade),
                                                                                  _target(target) {
     isExecGradeGood(execGrade);
@@ -32,58 +36,68 @@ Form::Form(std::string name, int signGrade, int execGrade, std::string target) :
     _signed = false;
 }
 
-Form::~Form(void) {
+AForm::~AForm(void) {
 
 }
 
-std::string const   Form::getName() const {
+std::string const   AForm::getName() const {
     return _name;
 }
 
-std::string const   Form::getTarget() const {
+std::string const   AForm::getTarget() const {
     return _target;
 }
 
-int                 Form::getSignGrade() const {
+int                 AForm::getSignGrade() const {
     return _signGrade;
 }
 
-int                 Form::getExecGrade() const {
+int                 AForm::getExecGrade() const {
     return _execGrade;
 }
 
-bool                Form::isSigned() const {
+bool                AForm::isSigned() const {
     return _signed;
 }
 
-void                Form::isSignGradeGood(int newGrade) const {
+void                AForm::isSignGradeGood(int newGrade) const {
     if (newGrade < 1)
-        throw Form::GradeTooHighException();
+        throw AForm::GradeTooHighException();
     else if (newGrade > 150)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 }
 
-void                Form::isExecGradeGood(int newGrade) const {
+void                AForm::isExecGradeGood(int newGrade) const {
     if (newGrade < 1)
         throw GradeTooHighException();
     else if (newGrade > 150)
         throw GradeTooLowException();
 }
 
-void                Form::beSigned(Bureaucrat const &bureaucrat) {
+void                AForm::beSigned(Bureaucrat const &bureaucrat) {
     if (bureaucrat.getGrade() <= _signGrade) {
         _signed = true;
     }
     else {
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     }
 }
 
-Form &Form::operator=(Form const &) {
+void                AForm::execute(Bureaucrat const &executor) const {
+    if (!_signed)
+        throw FormNotSignedException();
+    if (executor.getGrade() <= _execGrade) {
+        action();
+    }
+    else
+        throw AForm::GradeTooLowException();
+}
+
+AForm &AForm::operator=(AForm const &) {
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &o, Form const &i) {
+std::ostream &operator<<(std::ostream &o, AForm const &i) {
     o << i.getName();
     o << ", required grade for signing : " << i.getSignGrade();
     o << ", required grade for execution : " << i.getExecGrade();

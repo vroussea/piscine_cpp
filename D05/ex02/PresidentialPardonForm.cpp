@@ -16,7 +16,7 @@
 /*    Constructors & destructor    */
 /* ******************************* */
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5, target) {
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5, target) {
 
 }
 
@@ -46,15 +46,8 @@ std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &i) {
 /*            Functions            */
 /* ******************************* */
 
-void        PresidentialPardonForm::execute(Bureaucrat const &executor) const {
-    if (!_signed)
-        throw FormNotSignedException();
-    if (executor.getGrade() <= _execGrade) {
-        std::cout << _target << " has been pardoned by Zafod Beeblebrox." << std::endl;
-    }
-    else {
-        throw Form::GradeTooLowException();
-    }
+void        PresidentialPardonForm::action(void) const {
+    std::cout << _target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
 /* ******************************* */

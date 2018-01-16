@@ -16,7 +16,7 @@
 /*    Constructors & destructor    */
 /* ******************************* */
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45, target) {
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45, target) {
     srand(time(0));
 }
 
@@ -46,22 +46,16 @@ std::ostream &operator<<(std::ostream &o, RobotomyRequestForm const &i) {
 /*            Functions            */
 /* ******************************* */
 
-void        RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-    if (!_signed)
-        throw FormNotSignedException();
-    if (executor.getGrade() <= _execGrade) {
-        int i = rand() % 2;
+void        RobotomyRequestForm::action(void) const {
+    int i = rand() % 2;
 
-        std::cout << "BBBBBRRRRRRR ... VVVVRRRRRRRRRRRRRR ... DDRRR DDDRRR DRRRR";
-        if (i == 0)
-            std::cout << _target << " has been successfully robotomized." << std::endl;
-        else
-            std::cout << _target << " robotomization failed." << std::endl;
-    }
-    else {
-        throw Form::GradeTooLowException();
-    }
+    std::cout << "BBBBBRRRRRRR ... VVVVRRRRRRRRRRRRRR ... DDRRR DDDRRR DRRRR";
+    if (i == 0)
+        std::cout << _target << " has been successfully robotomized." << std::endl;
+    else
+        std::cout << _target << " robotomization failed." << std::endl;
 }
+
 
 /* ******************************* */
 /*            Accessors            */

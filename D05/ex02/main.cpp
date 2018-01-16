@@ -13,7 +13,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -62,18 +62,16 @@ void    testRobo() {
 
     Bureaucrat bureaucrata("1", 45);
     std::cout << bureaucrata;
-    RobotomyRequestForm forma("test");
-    std::cout << forma;
-    bureaucrata.signForm(forma);
-    bureaucrata.executeForm(forma);
+    std::cout << form1;
+    bureaucrata.signForm(form1);
+    bureaucrata.executeForm(form1);
     std::cout << std::endl;
 
     Bureaucrat bureaucratb("1", 45);
     std::cout << bureaucratb;
-    RobotomyRequestForm formb("test");
-    std::cout << formb;
-    bureaucratb.signForm(formb);
-    bureaucratb.executeForm(formb);
+    std::cout << form1;
+    bureaucratb.signForm(form1);
+    bureaucratb.executeForm(form1);
     std::cout << std::endl;
 
     Bureaucrat bureaucrat2("1", 45);

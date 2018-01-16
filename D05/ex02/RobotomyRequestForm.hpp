@@ -15,16 +15,16 @@
 
 #include <cstdlib>
 #include <time.h>
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
-class RobotomyRequestForm : public Form {
+class RobotomyRequestForm : public AForm {
 public:
     RobotomyRequestForm(std::string target);
 
     virtual ~RobotomyRequestForm(void);
 
-    virtual void        execute(Bureaucrat const &executor) const;
+    virtual void        action(void) const;
 
 private:
     RobotomyRequestForm(void) {};
