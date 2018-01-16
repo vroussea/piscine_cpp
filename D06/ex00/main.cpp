@@ -33,7 +33,7 @@ int main(int ac, char **av) {
             std::cout << "int: impossible" << std::endl;
         }
         else {
-            if (b > UCHAR_MAX || b < 0)
+            if (b > UCHAR_MAX || b < 0 || d - static_cast<double>(a) > 0)
                 std::cout << "char: impossible" << std::endl;
             else if (std::isprint(a))
                     std::cout << "char: '" << a << "'" << std::endl;
