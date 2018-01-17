@@ -43,6 +43,11 @@ int main(void) {
     std::cout << "Array size : " << array1.size() << std::endl;
 
     float *tab1 = new float[4];
+
+    for (unsigned int i = 0; i < 4; i++)
+        std::cout << tab1[i] << "f ";
+    std::cout <<std::endl;
+
     tab1[0] = 0;
     tab1[1] = 1;
     tab1[2] = 2;
