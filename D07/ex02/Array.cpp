@@ -19,11 +19,11 @@ public:
 /*    Constructors & destructor    */
 /* ******************************* */
 
-    Array(void) : _n(0) {
+    Array<T>(void) : _n(0) {
         _array = new T[0];
     }
 
-    Array(unsigned int n) : _n(n){
+    Array<T>(unsigned int n) : _n(n){
         _array = new T[_n];
         unsigned int    i = 0;
         while (i < _n) {
@@ -32,7 +32,7 @@ public:
         }
     }
 
-    Array(Array const &src) : _n(src.size()) {
+    Array<T>(Array const &src) : _n(src.size()) {
         _array = new T[_n];
         *this = src;
     }
