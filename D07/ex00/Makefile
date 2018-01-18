@@ -45,7 +45,7 @@ INC_DIR =	includes
 # libs
 
 # sources
-SRC_NAME =	main.cpp
+SRC_NAME =	whatever.cpp
 
 # objects
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
