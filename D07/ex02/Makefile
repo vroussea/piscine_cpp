@@ -6,7 +6,7 @@
 #    By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 09:55:27 by vroussea          #+#    #+#              #
-#    Updated: 2018/01/17 19:00:40 by vroussea         ###   ########.fr        #
+#    Updated: 2018/01/18 13:00:59 by vroussea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ INC_DIR =	includes
 # libs
 
 # sources
-SRC_NAME =	main.cpp Array.cpp
+SRC_NAME =	main.cpp
 
 # objects
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
@@ -56,7 +56,7 @@ OBJ =		$(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
 
 all :		$(EXE)
 $(EXE) :	$(SRC) $(OBJ)
-		@$(CC) $(OBJ) -o $@
+		@$(CC) $(OBJ) $(OBJ_TEMPLATE) -o $@
 		@echo "$(CLEAR)$(LIG)$(BLUE) Compiling "$(EXE) "$(CLEAR)$(LIG)"
 $(OBJ_DIR)/%.o: %.cpp
 		@mkdir -p $(OBJ_DIR) 2> /dev/null || true

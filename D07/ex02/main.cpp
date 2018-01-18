@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include "Array.cpp"
+#include "Array.tpp"
 
 int main(void) {
     std::cout << std::setprecision(1) << std::fixed;
@@ -25,13 +25,27 @@ int main(void) {
     std::cout << *c << std::endl;
     double * d = new double();
     std::cout << *d << std::endl;
+    std::string * s = new std::string();
+    std::cout << *s << std::endl;
+
+    std::cout << "value without init" << std::endl << std::endl;
 
     Array<char> array(1);
     array[0] = 'a';
     std::cout << array[0] << std::endl;
     try {
+        std::cout << "trying to access index 1 of size one array : " << std::endl;
         array[1] = 'b';
         std::cout << array[1] << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    try {
+        std::cout << "trying to access index -1 of size one array : " << std::endl;
+        array[-1] = 'b';
+        std::cout << array[-1] << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;
@@ -75,6 +89,21 @@ int main(void) {
         std::cout << arrayCopy[i] << "f ";
     std::cout <<std::endl;
     std::cout << "Array size : " << arrayCopy.size() << std::endl;
+
+
+    Array<std::string> stringArray(4);
+
+    stringArray[2] = "test";
+
+    for (unsigned int i = 0; i < 4; i++)
+        std::cout << stringArray[i] << " ";
+    std::cout <<std::endl;
+
+    Array<std::string> copyStringArray(stringArray);
+
+    for (unsigned int i = 0; i < 4; i++)
+        std::cout << copyStringArray[i] << " ";
+    std::cout <<std::endl;
 
     delete [] tab1;
     return 1;
